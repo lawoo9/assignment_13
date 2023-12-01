@@ -1,0 +1,247 @@
+{% extends "homebase.html" %}
+{% block head %}
+    <meta name = "description" content="Home page for STI data collection">
+{% endblock head %}
+{% block title %}<title>Home</title>{% endblock title %}
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mt-4">STI Case Reporting Form for Chlamydia and Gonorrhea </h1>
+    <h3>Clinic Information </h3>
+    <div class="msg">{{ msg }}</div>
+    <form action="{{ url_for('chlamydia_gonorrhea') }}" method="post">
+        <div class ="row">
+        <div class="col-5">
+        <label for="report-date">Date</label>
+        </div>
+        <div class="col-7">
+        <input type="date" name="report-date" id="report-date" value="{{ report_date }}">
+        </div>
+        </div>
+        <hr/>
+        <div class ="row">
+        <div class="col-5">
+        <label for="Person completing the form">Person completing the form</label>
+        </div>
+        <div class="col-7">
+        <input type="text" name="Person completing the form" id="Person completing the form" value="{{ Person completing the form }}">
+        </div>
+        </div>
+        <hr/>
+        <div class ="row">
+            <div class="col-5">
+            <label for="Health Provider">Health Provider</label>
+            </div>
+            <div class="col-7">
+            <input type="text" name="Health Provider" id="Health Provider" value="{{ Health Provider }}">
+            </div>
+            </div>
+            <hr/>
+            <div class ="row">
+                <div class="col-5">
+                <label for="Phone number">Phone Number</label>
+                </div>
+                <div class="col-7">
+                <input type="text" name="Phone Number" id="Phone Number" value="{{ Phone Number }}">
+                </div>
+                </div>
+                <hr/>
+                <p>Your lab reported a communicable disease on the patient shown below and listed you as the provider. The Oregon Department of Human Services and Washington County require additional information. The fax cover sheet you have received references Oregon Law (ORS 433) that requires you to report this information. Please complete the form within 24 hours, or by the end of the next working day, and fax it back to our office at 503-846-3644. If you prefer you may call to report the required information. We appreciate your cooperation and prompt handling of this confidential report. </p><br/>
+                <h2>Patient Information — Please complete all information requested below </h2>
+                    <div class ="row">
+                    <div class="col-5">
+                    <label for="Name">Name</label>
+                    </div>
+                    <div class="col-7">
+                    <input type="text" name="name" id="name" value="{{ name }}">
+                    </div>
+                    </div>
+                    <hr/>
+                    <div class ="row">
+                        <div class="col-5">
+                        <label for="dob">Date of Birth</label>
+                        </div>
+                        <div class="col-7">
+                        <input type="date" name="dob" id="dob" value="{{ dob }}">
+                        </div>
+                        </div>
+                        <hr/>
+        <div class ="row">
+            <div class="col-5">
+            <label for="Gender">Gender</label>
+            </div>
+            <div class="col-7">
+            <input type="checkbox" name="Male" id="gender" value="Male">Male<br/>
+            <input type="checkbox" name="female" id="gender" value="female">Female<br/>
+            <input type="checkbox" name="other" id="gender" value="Other"> Other<br/>
+            </div>
+            </div>
+            <hr/>
+            <div class ="row">
+            <div class="col-5">
+            <label for="Home Address">Home Address</label>
+            </div>
+            <div class="col-7">
+               Street: <input type ="text" name = "Street"><br/>
+               City/state: <input type ="text" name = "City/state"><br/>
+               Zip: <input type ="text" name = "Zip"><br/>
+              <hr/>
+              <div class="col-7">
+                Phoone number: <input type ="text" name = "Phone number"><br/>
+                Alternative: <input type ="text" name = "Alternative"><br/>
+               <hr/>
+               <div class ="row">
+                <div class="col-5">
+                <label for="ETHNICITY">ETHNICITY</label>
+                </div>
+                <div class="col-7">
+                <input type="checkbox" name="Hispanic" id="ETHNICITY" value="Hispanic"> Hispanic<br/>
+                <input type="checkbox" name="Non-Hispanic" id="ETHNICITY" value="Non-Hispanic"> Non-Hispanic<br/>
+                <input type="checkbox" name="Unknown" id="ETHNICITY" value="Unknown">Unknown<br/>
+                </div>
+                </div>
+                <hr/>
+                <div class ="row">
+                    <div class="col-5">
+                    <label for="race">Race</label>
+                    </div>
+                    <div class="col-7">
+                    <input type="checkbox" name="White" id="Race" value="White">White<br/>
+                    <input type="checkbox" name="Black" id="Race" value="black">Black<br/>
+                    <input type="checkbox" name="asian" id="Race" value="asian">Asian<br/>
+                    <input type="checkbox" name="american indian" id="Race" value="american indian">American indian<br/>
+                <input type="checkbox" name="alaskan" id="Race" value="alaskan">Alaskan<br/>
+                <input type="checkbox" name="Unknown" id="Race" value="Unknown">Unknown<br/>
+                <input type="checkbox" name=" Pacific Islander" id="Race" value=" Pacific Islander"> Pacific Islander<br/>
+                <input type="checkbox" name=" Other" id="Race" value=" Other"> Other<br/>
+                    </div>
+                    </div>
+                    <hr/>
+                    <div class ="row">
+                        <div class="col-5">
+                        <label for="Gender of sex partner(s)">Gender of sex partner(s)</label>
+                        </div>
+                        <div class="col-7">
+                        <input type="checkbox" name="Male" id="Gender of sex partner(s)" value="Male">Male<br/>
+                        <input type="checkbox" name="female" id="Gender of sex partner(s)" value="female">Female<br/>
+                        <input type="checkbox" name="Both" id="Gender of sex partner(s)" value="both">Both<br/>
+                        <input type="checkbox" name="Unknown" id="Gender of sex partner(s)" value="Unknown">Unknown<br/>
+                        </div>
+                        </div>
+                        <hr/>
+                        <div class ="row">
+                            <div class="col-5">
+                            <label for="TEST RESULT TYPE">TEST RESULT TYPE:</label>
+                            </div>
+                            <div class="col-7">
+                <input type="checkbox" name=" Chlamydia Positive Result " id="TEST RESULT TYPE" value="Chlamydia Positive Result">Chlamydia Positive Result<br/>
+              Date: <input type ="date" name = "date"><br/>
+              <input type="checkbox" name="Gonorrhea Positive Result" id="TEST RESULT TYPE" value="Gonorrhea Positive Result  ">Gonorrhea Positive Result<br/>
+              Date: <input type ="date" name = "date"><br/>
+              Type of Test 2: <input type ="text" name = "typeoftest2"><br/>
+              PREVIOUS HIV TESTING:<br/>
+               <input type ="radio" name = "PREVIOUS HIV TESTING" value = "yes">Yes<br/>
+               <input type ="radio" name = "PREVIOUS HIV TESTING" value = "no">No<br/>
+               <input type ="radio" name = "PREVIOUS HIV TESTING" value = "unknown">unknown<br/>
+               If yes, last result was? :<br/>
+               <input type ="radio" name = "If yes, last result was?" value = "Pos">Pos<br/>
+               <input type ="radio" name = "If yes, last result was?" value = "Neg">Neg<br/>
+               <input type ="radio" name = "If yes, last result was?" value = "unknown">unknown<br/>
+               Month of last test: <input type ="date" name = "Month of last test"><br/>
+               Year of last test: <input type ="date" name = "Year of last test"><br/>
+             <hr/>
+             <div class ="row">
+                <div class="col-5">
+                <label for="REASON FOR EXAM">REASON FOR EXAM:</label>
+                </div>
+                <div class="col-7">
+                <input type="checkbox" name="Symptomatic" id="REASON FOR EXAM" value="Symptomatic">Symptomatic<br/>
+                <input type="checkbox" name="Routine Exam" id="REASON FOR EXAM" value="Routine Exam">Routine Exam<br/>
+                <input type="checkbox" name="Test for Cure" id="REASON FOR EXAM" value="Test for Cure">Test for Cure<br/>
+                <input type="checkbox" name="Exposed to Infection" id="REASON FOR EXAM" value="Exposed to Infection">Exposed to Infection<br/>
+                <input type="checkbox" name="Pregnant" id="REASON FOR EXAM" value="Pregnant">Pregnant<br/>
+                DIAGNOSIS:<br/>
+                <input type ="radio" name = "DIAGNOSIS" value = "Asymptomatic">Asymptomatic<br/>
+                <input type ="radio" name = "DIAGNOSIS" value = "Symptomatic-Uncomplicated">Symptomatic-Uncomplicated<br/>
+                <input type ="radio" name = "DIAGNOSIS" value = "Pelvic Inflammatory Disease (PID)">Pelvic Inflammatory Disease (PID)<br/>
+                <input type ="radio" name = "DIAGNOSIS" value = "Ophthalmia /conjunctivitis">Ophthalmia /conjunctivitis<br/>
+                <input type ="radio" name = "DIAGNOSIS" value = "Disseminated">Disseminated<br/>
+                SITE:<br/>
+                <input type ="radio" name = "SITE" value = "Cervix">Cervix<br/>
+                <input type ="radio" name = "SITE" value = "Vaginal">Vaginal<br/>
+                <input type ="radio" name = "SITE" value = "Urethra">Urethra<br/>
+                <input type ="radio" name = "SITE" value = "Rectum">Rectum<br/>
+                <input type ="radio" name = "SITE" value = "Ocular">Ocular<br/>
+                <input type ="radio" name = "SITE" value = "Urine">Urine<br/>
+                <input type ="radio" name = "SITE" value = "Pharynx">Pharynx<br/>
+                <input type ="radio" name = "SITE" value = "other">Other<br/>
+                </div>
+                </div>
+                <hr/>
+                <div class ="row">
+                    <div class="col-5">
+                    <label for="GONORRHEA TREATMENT PLAN">GONORRHEA TREATMENT PLAN:</label>
+                    </div>
+                <div class="col-7">
+                    Rocephin/Ceftriaxone 250mg IM x 1: <input type ="text" name = "Rocephin/Ceftriaxone 250mg IM x 1"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                    PLUS:<br/>
+                    Azithromycin 1gm orally in a single dose: <input type ="text" name = "Azithromycin 1gm orally in a single dose"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                    CHLAMYDIA TREATMENT PLAN:<br/>
+                    Azithromycin 1gm orally in a single dose: <input type ="text" name = "Azithromycin 1gm orally in a single dose"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                    OR:<br/>
+                    Doxycycline 100mg BID x 7 days(contraindicated during pregnancy): <input type ="text" name = "Doxycycline 100mg BID x 7 days(contraindicated during pregnancy)"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                   <hr/>
+                   <div class ="row">
+                    <div class="col-5">
+                    <label for="Alternative Treatment Regimens">Alternative Treatment Regimens:</label>
+                    </div>
+                <div class="col-7">
+                    Cefixime 400mg orally in a single dose: <input type ="text" name = "Cefixime 400mg orally in a single dose"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                    PLUS:<br/>
+                    Azithromycin 1gm orally in a single dose: <input type ="text" name = "Azithromycin 1gm orally in a single dose"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                    Alternative Treatment Regimens:<br/>
+                    Amoxicillin 500mg orally tid X 7 days: <input type ="text" name ="Amoxicillin 500mg orally tid X 7 days"><br/>
+                   Date: <input type ="date" name = "date"><br/>
+                   <hr/>
+                   <div class="col-7">
+                    Other Treatment: <input type ="text" name = " Other Treatment:"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                    <p>(test of cure recommended at 1 month)</p>
+                    Other Treatment: <input type ="text" name = "Other Treatment:"><br/>
+                    Date: <input type ="date" name = "date"><br/>
+                   <hr/>
+                   <div class ="row">
+                    <div class="col-5">
+                    <label for="IF NOT TREATED YET — PATIENT NOTIFIED OF INFECTION">IF NOT TREATED YET — PATIENT NOTIFIED OF INFECTION:</label>
+                    </div>
+                    <div class="col-7">
+                        <input type="checkbox" name="Male" id="IF NOT TREATED YET — PATIENT NOTIFIED OF INFECTION" value="yes">Yes<br/>
+                        <input type="checkbox" name="female" id="IF NOT TREATED YET — PATIENT NOTIFIED OF INFECTION" value="no">No<br/>
+                        Does the provider need assistance in contacting a client that has not responded for treatment?:<br/>
+                        <input type="checkbox" name="Male" id="Does the provider need assistance in contacting a client that has not responded for treatment?" value="yes">Yes<br/>
+                        <input type="checkbox" name="female" id="Does the provider need assistance in contacting a client that has not responded for treatment?" value="no">No<br/>
+                        <hr/>
+                        <div class ="row">
+                            <div class="col-5">
+                            <label for="  PARTNER MANAGEMENT PLAN —  Ensuring Partner Treatment">PARTNER MANAGEMENT PLAN —  Ensuring Partner Treatment:</label>
+                            </div>
+                            <div class="col-7">
+                                Expedited Partner Therapy dispensed at time of visit?:<br/>   
+                                <input type="checkbox" name="Male" id="Expedited Partner Therapy dispensed at time of visit?" value="yes">Yes<br/>
+                                <input type="checkbox" name="female" id="Expedited Partner Therapy dispensed at time of visit?" value="no">No<br/>
+                                Does the provider need assistance in contacting a client that has not responded for treatment?:<br/>
+                                How many partners?: <input type ="text" name = "How many partners?"><br/>
+                                <p>(See: OHA/STD Prevention for EPT guidelines and policy)</p><br/>
+                                <hr/>
+                                <p>  When resources allow the health department will be contacting gonorrhea cases and high risk chlamydia cases to offer partner services. Please notify patient that public health worker may be contacting them to offer partner services.</p>
+                                PROVIDER REQUESTS THAT CLIENT NOT BE CONTACTED BY PUBLIC HEALTH/PROVIDER WILL ASSURE PARTNER TREATMENT: <input type ="text" name = " PROVIDER REQUESTS THAT CLIENT NOT BE CONTACTED BY PUBLIC HEALTH/PROVIDER WILL ASSURE PARTNER TREATMENT"><br/>
+                                <p>  CURRENT RECOMMENDED TREATMENT- See CDC Guidelines at:  www.cdc.gov/std/treatment/ </p>
+                                <hr/>
+        </form> 
+</div>
+{% endblock content %}
